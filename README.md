@@ -1,41 +1,53 @@
-C Quiz Arena
-This is a simple command-line Multiple Choice Question (MCQ) quiz application written in C. It features a hardcoded question bank and uses the Fisher-Yates shuffle algorithm to present a randomized set of 10 questions to the user.
-Features
- * Extensive Question Bank: Includes 50 questions focused on C programming fundamentals.
- * Randomization: Questions are shuffled and the user is presented with 10 random questions from the bank on each run.
- * Scoring: Tracks the user's score and displays the final score and percentage at the end.
- * Simple I/O: Easy-to-use command-line interface.
-Prerequisites
-To compile and run this program, you need a C compiler (like GCC) installed on your system.
-How to Compile and Run
-Follow these steps to compile and execute the quiz on a Linux/macOS terminal or a Windows command prompt with GCC installed.
- * Save the Code: Save the provided C code into a file named quiz.c.
- * Compile: Open your terminal or command prompt and use the GCC compiler to compile the file:
-   gcc quiz.c -o quiz
+# C Quiz Arena
 
- * Run: Execute the compiled program:
-   ./quiz
+A simple, terminal-based multiple-choice quiz game written in C that helps you practice C programming fundamentals using a randomized set of questions each run.
 
-   (On some Windows systems, you may need to run quiz.exe)
-Code Overview
-1. Structure Definition
-The struct Question holds all the data for a single MCQ, including the question text, four options, and the single-character correct answer ('A', 'B', 'C', or 'D').
-struct Question {
-    char question[200];
-    char optionA[100];
-    char optionB[100];
-    char optionC[100];
-    char optionD[100];
-    char correctAnswer;
-};
+## Overview
 
-2. Randomization (Shuffle)
-The shuffleQuestions function implements the Fisher-Yates (Knuth) Shuffle algorithm. This ensures that the questions array (questionBank) is thoroughly randomized, making each quiz run unique.
- * It uses srand(time(NULL)) in main to seed the random number generator, ensuring different results each time the program runs.
- * It iterates from the last element down to the second, swapping each element with a randomly chosen element before it.
-3. Main Logic (main function)
- * Initialization: The questionBank array is initialized with 50 hardcoded questions.
- * Shuffling: shuffleQuestions(questionBank, 50) is called to randomize the entire bank.
- * Quiz Loop: A for loop runs 10 times to present the first 10 questions from the now-shuffled array.
- * Input/Check: It prompts the user for an answer, converts lowercase input to uppercase, and compares it against the stored correctAnswer.
- * Result: The final score and percentage are calculated and displayed.
+C Quiz Arena is a command-line MCQ quiz application that presents 10 randomly selected questions from a bank of 50 C programming questions. It uses a struct-based question model and a shuffle algorithm to keep each playthrough unique while tracking the user’s score and percentage. This design follows common patterns used in beginner-friendly C quiz examples that rely on arrays of structs and basic I/O.
+
+## Features
+
+C Quiz Arena focuses on clarity and learning, making it suitable for beginners exploring C language basics. It emphasizes clean terminal interaction and simple data structures.
+
+- **Extensive Question Bank**: Includes 50 hardcoded questions covering C fundamentals such as data types, control flow, functions, pointers, and basic syntax.
+- **Randomization**: Uses the Fisher–Yates (Knuth) shuffle algorithm to randomize the question array so each run presents a different set of 10 questions.
+- **Score Tracking**: Counts the number of correct answers and computes the final percentage based on 10 attempted questions.
+- **Simple Terminal I/O**: Uses standard input/output functions, accepts answers as single characters (`A`–`D`), and normalizes lowercase input to uppercase automatically.
+- **Deterministic Structure**: All questions and logic are stored in a single C source file for easy reading and modification.
+
+## Prerequisites
+
+To build and run this program, you need a C compiler installed on your system.
+- **GCC** (GNU Compiler Collection) is recommended.
+- Works on Linux, macOS, and Windows (via MinGW or similar).
+
+## How to Compile and Run
+
+Follow these steps to compile and execute the quiz on your terminal or command prompt.
+
+### 1. Save the Code
+Save your C source code into a file named `quiz.c`.
+
+### 2. Compile
+Open your terminal or command prompt and use the GCC compiler to compile the file:
+
+**Linux/macOS:**
+```
+gcc quiz.c -o quiz
+```
+
+### Execute the compiled program to start the quiz:
+```
+./quiz
+```
+
+**Windows:**
+```
+gcc quiz.c -o quiz.exe
+```
+
+### Execute the compiled program to start the quiz:
+```
+quiz exe
+```
